@@ -11,5 +11,5 @@
 #include <netinet/ip.h>
 
 #define MAXBUF 40
-#define SERVER_PORT 7777
+#define SERVER_PORT 7373
 #define MY_PORT 3333

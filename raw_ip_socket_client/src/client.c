@@ -21,7 +21,7 @@ int main( int argc, char **argv ) {
 		exit(1);
 	}
 	server.sin_family = AF_INET;
-	server.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+	server.sin_addr.s_addr = inet_addr("192.168.2.59")/*htonl(INADDR_LOOPBACK)*/;
 	server.sin_port = htons(SERVER_PORT);
 	/*create UDP structure*/
 	memset(udph, 0, sizeof(struct udphdr));
@@ -43,8 +43,8 @@ int main( int argc, char **argv ) {
 	iph->ttl = 255;
 	iph->protocol = 17;
 	iph->check = 0;
-	iph->daddr = inet_addr (source_ip);
-	iph->saddr = inet_addr (source_ip)/* server.sin_addr.s_addr*/;
+	iph->daddr = inet_addr ("192.168.2.59");
+	iph->saddr = inet_addr (source_ip);
 
 	memcpy(send_buf, iph, sizeof(struct iphdr));
 	memcpy(send_buf + sizeof(struct iphdr), udph, sizeof(struct udphdr));

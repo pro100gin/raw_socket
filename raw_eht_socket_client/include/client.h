@@ -9,7 +9,14 @@
 #include <string.h>
 #include <netinet/udp.h>
 #include <netinet/ip.h>
+#include <sys/ioctl.h>
+#include <net/ethernet.h>
+#include <net/if.h>
+#include <linux/if_packet.h>
+#include <linux/if_ether.h>
+#include <linux/if_arp.h>
+
 
 #define MAXBUF 40
-#define SERVER_PORT 7777
+#define SERVER_PORT 7373
 #define MY_PORT 3333
