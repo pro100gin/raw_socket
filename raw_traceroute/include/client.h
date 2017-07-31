@@ -26,9 +26,17 @@
 #include <netdb.h>
 #include <linux/if_arp.h>
 #include <sys/ioctl.h>
-
-
+#include <sys/epoll.h>
 
 #define MAXBUF 40
 #define SERVER_PORT 7373
 #define MY_PORT 3333
+
+
+void ping(struct sockaddr_in *, unsigned char *);
+
+void rcv_pct();
+
+void pr_pack(char *, int , struct sockaddr_in *);
+
+unsigned short compute_checksum(unsigned short *, unsigned int );
